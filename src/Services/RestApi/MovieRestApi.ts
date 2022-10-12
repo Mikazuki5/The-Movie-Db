@@ -9,4 +9,8 @@ export class MovieRestApiServices {
   now_playing(params:any){
     return this.httpRequest.get(`/movie/now_playing?${params}`)
   }
+
+  topRatedMovie(queryParams: any){
+    return this.httpRequest.get(`/movie/top_rated?${queryParams}`)
+  }
 }

@@ -52,6 +52,17 @@ export default function <C>({ Colors, ...args }: CommonParams<C>) {
       },
       horizontalLined: {
         borderBottomWidth: 1, borderColor: Colors.mono3
+      },
+      cardShadows: {
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
       }
     }),
   }

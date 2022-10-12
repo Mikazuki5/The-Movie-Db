@@ -22,6 +22,7 @@ export const Colors = {
 
   // Base
   baseHeaderColor: '#FFF5EE',
+  baseColorAppBlue: '#0d253f',
 
   // Apps
   black: '#000',

@@ -63,6 +63,9 @@ export default function ({ }: ThemeVariables) {
     alignItemsStart: {
       alignItems: 'flex-start',
     },
+    alignItemsEnd: {
+      alignItems: 'flex-end',
+    },
     alignItemsStretch: {
       alignItems: 'stretch',
     },

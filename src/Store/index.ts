@@ -7,7 +7,7 @@ import { reducers } from './rootReducer'
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['theme', 'pricing'],
+  whitelist: ['theme', 'MovieStore'],
 }
 
 const persistedReducer = persistReducer(persistConfig, reducers)

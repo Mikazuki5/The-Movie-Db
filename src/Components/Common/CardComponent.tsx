@@ -13,7 +13,7 @@ const CardComponent = (props:CardTypes) => {
       style={[
         props.CardStyle
           ? props.CardStyle
-          : Gutters.regularBRadius, Layout.fill, Common.cardShadows, Gutters.tinyMargin, Gutters.tinyPadding, {
+          : Gutters.regularBRadius, Common.cardShadows, Gutters.tinyMargin, Gutters.tinyPadding, {
             backgroundColor: props.color,
             width: props?.width,
             height: props?.height

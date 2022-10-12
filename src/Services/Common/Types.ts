@@ -31,7 +31,7 @@ export type interfaceAnimatedView = {
 }
 
 export type Buttontypes = {
-  color: string | any,
+  color?: string | any,
   type: 'submit' | 'cancel',
   disable?: boolean,
   onSubmit: (values:any) => void,
@@ -51,6 +51,7 @@ export type MappingDataWithScrollViewProps = {
   keyboardShouldPersistTaps?: boolean | 'always' | 'never' | 'handled' | undefined
   keyboardDismissMode?: 'none' | 'interactive' | 'on-drag' | undefined
   ListEmptyComponent?: React.ComponentType<any> | React.ReactElement | null | undefined;
+  scrollEnabled?:boolean
 }
 
 export type CardTypes = {

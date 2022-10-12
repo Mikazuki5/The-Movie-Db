@@ -1,7 +1,7 @@
 import { View, SafeAreaView, ScrollView, Image } from 'react-native'
 import React from 'react'
 import { useTheme } from '@/Hooks'
-import { HeaderHome, MostPopularComponent, SearchComponent, Text } from '@/Components'
+import { HeaderHome, MostPopularComponent, SearchComponent, Text, TrendingComponent } from '@/Components'
 import Brand from '@/Components/Common/BrandComponent'
 import { FontBase } from '@/Theme/Variables'
 
@@ -38,6 +38,7 @@ const HomeScreenContainer = () => {
           onEndEditing={(values:any) => console.log('Values: ', values?.nativeEvent?.text)}
         />
         <MostPopularComponent />
+        <TrendingComponent />
       </ScrollView>
     </SafeAreaView>
   )

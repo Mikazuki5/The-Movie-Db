@@ -4,7 +4,7 @@ import { MappingDataWithScrollViewProps } from '@/Services/Common/Types'
 
 
 
-const MappingDataWithScrollView = ({ renderItem, data, horizontal, style, contentContainerStyle, refreshControl, keyboardShouldPersistTaps, keyboardDismissMode, ListEmptyComponent}: MappingDataWithScrollViewProps) => {
+const MappingDataWithScrollView = ({ renderItem, data, horizontal, style, contentContainerStyle, refreshControl, keyboardShouldPersistTaps, keyboardDismissMode, ListEmptyComponent, scrollEnabled}: MappingDataWithScrollViewProps) => {
   return (
     <ScrollView 
       horizontal={horizontal} 
@@ -13,6 +13,7 @@ const MappingDataWithScrollView = ({ renderItem, data, horizontal, style, conten
       refreshControl={refreshControl}
       keyboardShouldPersistTaps={keyboardShouldPersistTaps}
       keyboardDismissMode={keyboardDismissMode}
+      scrollEnabled={scrollEnabled}
     >
       {data?.length == 0 && ListEmptyComponent}
       {data?.map(renderItem)}
@@ -21,7 +22,8 @@ const MappingDataWithScrollView = ({ renderItem, data, horizontal, style, conten
 }
 
 MappingDataWithScrollView.defaultProps = {
-  horizontal: false
+  horizontal: false,
+  scrollEnabled: true
 }
 
 export default MappingDataWithScrollView

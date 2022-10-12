@@ -23,7 +23,7 @@ const Button:React.FC<Buttontypes> = ({
         disabled={disable}
         style={[
           style, 
-          { backgroundColor: color ? color : Colors.blue1 , borderRadius: 10 }
+          { backgroundColor: color ? color : Colors.blue1  }
         ]}
       >
         {children}

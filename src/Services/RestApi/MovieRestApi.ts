@@ -13,4 +13,8 @@ export class MovieRestApiServices {
   topRatedMovie(queryParams: any){
     return this.httpRequest.get(`/movie/top_rated?${queryParams}`)
   }
+  
+  topRatedTv(queryParams: any){
+    return this.httpRequest.get(`/tv/top_rated?${queryParams}`)
+  }
 }

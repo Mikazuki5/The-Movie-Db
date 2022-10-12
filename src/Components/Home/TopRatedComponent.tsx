@@ -16,7 +16,7 @@ import MappingDataWithScrollView from '../Common/MappingDataWithScrollView'
 import { LoadingComponent } from '../Common/LoadingComponent'
 
 
-const MostPopularComponent = () => {
+const TopRatedComponent = () => {
   const dispatch = useDispatch<any>()
   const { Layout, Gutters, Colors, Fonts } = useTheme();
   const [ category, setCategory ] = useState('topRatedMovie');
@@ -123,4 +123,4 @@ const MostPopularComponent = () => {
   )
 }
 
-export default MostPopularComponent
+export default TopRatedComponent

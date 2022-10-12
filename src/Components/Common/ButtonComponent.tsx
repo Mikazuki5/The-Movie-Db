@@ -4,7 +4,7 @@ import React from "react"
 import { TouchableOpacity } from "react-native"
 import { AnimatedScale } from "./AnimatedView"
 
-const Button:React.FC<Buttontypes> = ({
+const ButtonWithAnimated:React.FC<Buttontypes> = ({
   color,
   type,
   disable,
@@ -32,8 +32,32 @@ const Button:React.FC<Buttontypes> = ({
   )
 }
 
-Button.defaultProps={
+const Button:React.FC<Buttontypes> = ({
+  color,
+  type,
+  disable,
+  onSubmit,
+  style,
+  children,
+}) => {
+  const { Colors } = useTheme();
+  return (
+    <TouchableOpacity
+      key={type}
+      onPress={onSubmit}
+      disabled={disable}
+      style={[
+        style, 
+        { backgroundColor: color ? color : Colors.blue1  }
+      ]}
+    >
+      {children}
+    </TouchableOpacity>
+  )
+}
+
+ButtonWithAnimated.defaultProps={
   animated: false
 }
 
-export { Button };
+export { Button, ButtonWithAnimated };

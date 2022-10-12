@@ -17,4 +17,16 @@ export class MovieRestApiServices {
   topRatedTv(queryParams: any){
     return this.httpRequest.get(`/tv/top_rated?${queryParams}`)
   }
+
+  trending(queryParams:any){
+    return this.httpRequest.get(`/trending/${queryParams.mediaType}/${queryParams.timeWindow}`)
+  }
+
+  nowPlaying(queryParams:any){
+    return this.httpRequest.get(`/movie/now_playing?${queryParams}`)
+  }
+
+  upcomingMovie(queryParams:any){
+    return this.httpRequest.get(`/movie/upcoming?${queryParams}`)
+  }
 }

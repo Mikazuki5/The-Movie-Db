@@ -69,3 +69,9 @@ export type CardTypes = {
 export type LoadingTypes = {
   isLoading: any,
 }
+
+export type ModalFilterProps = {
+  visible: boolean
+  onSubmit: (mediaType?:any, timeWindow?:any) => void
+  onClosed: () => void
+}

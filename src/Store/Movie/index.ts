@@ -36,12 +36,76 @@ export const fetchTopRateMovie = createAsyncThunk(
     }
   }
 )
+
 export const fetchTopRateTv = createAsyncThunk(
   'MovieStore/fetch-top-rate-tv',
   async (params:{payload:any; callback: (action:any, status:any) => void}, {rejectWithValue, dispatch}) => {
     try {
       dispatch(setLoading(true));
       const res = await movieRestServices.topRatedTv(params.payload).toPromise();
+      if (res?.results) {
+        console.log('res: ', res.results)
+        dispatch(setLoading(false));
+        params?.callback(res, 200);
+      }
+      dispatch(setLoading(false));
+      return rejectWithValue(res)
+    } catch (error: any) {
+      dispatch(setLoading(false));
+      params?.callback(error, 400);
+      
+    }
+  }
+)
+
+export const fetchDataTrending = createAsyncThunk(
+  'MovieStore/fetch-data-trending',
+  async (params:{payload:any; callback: (action:any, status:any) => void}, {rejectWithValue, dispatch}) => {
+    try {
+      dispatch(setLoading(true));
+      const res = await movieRestServices.trending(params.payload).toPromise();
+      if (res?.results) {
+        console.log('res: ', res.results)
+        dispatch(setLoading(false));
+        params?.callback(res, 200);
+      }
+      dispatch(setLoading(false));
+      return rejectWithValue(res)
+    } catch (error: any) {
+      dispatch(setLoading(false));
+      params?.callback(error, 400);
+      
+    }
+  }
+)
+
+export const fetchDataNowPlaying = createAsyncThunk(
+  'MovieStore/fetch-data-nowPlaying',
+  async (params:{payload:any; callback: (action:any, status:any) => void}, {rejectWithValue, dispatch}) => {
+    try {
+      dispatch(setLoading(true));
+      const res = await movieRestServices.nowPlaying(params.payload).toPromise();
+      if (res?.results) {
+        console.log('res: ', res.results)
+        dispatch(setLoading(false));
+        params?.callback(res, 200);
+      }
+      dispatch(setLoading(false));
+      return rejectWithValue(res)
+    } catch (error: any) {
+      dispatch(setLoading(false));
+      params?.callback(error, 400);
+      
+    }
+  }
+)
+
+export const fetchDataUpcomingMovie = createAsyncThunk(
+  'MovieStore/fetch-data-upcoming',
+  async (params:{payload:any; callback: (action:any, status:any) => void}, {rejectWithValue, dispatch}) => {
+    try {
+      dispatch(setLoading(true));
+      const res = await movieRestServices.upcomingMovie(params.payload).toPromise();
       if (res?.results) {
         console.log('res: ', res.results)
         dispatch(setLoading(false));

@@ -1,8 +1,7 @@
-import { View, SafeAreaView, ScrollView, Image } from 'react-native'
+import { View, SafeAreaView, ScrollView } from 'react-native'
 import React from 'react'
 import { useTheme } from '@/Hooks'
-import { HeaderHome, MostPopularComponent, SearchComponent, Text, TrendingComponent } from '@/Components'
-import Brand from '@/Components/Common/BrandComponent'
+import { HeaderHome, NowPlayingComponent, SearchComponent, Text, TopRatedComponent, TrendingComponent } from '@/Components'
 import { FontBase } from '@/Theme/Variables'
 
 const HomeScreenContainer = () => {
@@ -12,7 +11,7 @@ const HomeScreenContainer = () => {
       <HeaderHome />
       <ScrollView 
         key={'ScrollView'}
-        style={[Gutters.largeVMargin, Gutters.smallHMargin]}
+        style={[Gutters.largeTMargin, Gutters.smallHMargin]}
         keyboardShouldPersistTaps={'handled'}
         nestedScrollEnabled
       >
@@ -37,7 +36,8 @@ const HomeScreenContainer = () => {
           styleContainerTextInput={Layout.fill}
           onEndEditing={(values:any) => console.log('Values: ', values?.nativeEvent?.text)}
         />
-        <MostPopularComponent />
+        <NowPlayingComponent />
+        <TopRatedComponent />
         <TrendingComponent />
       </ScrollView>
     </SafeAreaView>

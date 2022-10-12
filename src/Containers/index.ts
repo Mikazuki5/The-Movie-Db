@@ -1,2 +1,5 @@
 export { default as HomeScreenContainer } from './HomeScreen/HomeScreenContainer'
 export { default as BootScreenContainer } from './BootScreen/BootScreenContainer'
+export { default as MovieScreenContainer } from './Movie/MovieScreenContainer'
+export { default as TVScreenContainer } from './Tv/TVScreenContainer'
+export { default as WatchListScreenContainer } from './WatchList/WatchListScreenContainer'

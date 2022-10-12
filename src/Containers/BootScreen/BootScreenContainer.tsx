@@ -10,7 +10,7 @@ const BootScreenContainer = ({navigation}: any) => {
 
   useEffect(() => {
     setTimeout(() => {
-      navigation.replace('Home')
+      navigation.replace('MainMenu')
     },5000)
   }, [])
   

@@ -2,8 +2,9 @@ import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import useTheme from '@/Hooks/useTheme'
-import { BootScreenContainer, HomeScreenContainer } from '@/Containers'
+import { BootScreenContainer, MovieScreenContainer } from '@/Containers'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import BottomNavigator from './BottomNavigator'
 
 const Stack = createNativeStackNavigator()
 
@@ -20,8 +21,13 @@ const ApplicationNavigation = () => {
             options={{headerShown: false}} 
           />
           <Stack.Screen 
-            name="Home" 
-            component={HomeScreenContainer} 
+            name="MainMenu" 
+            component={BottomNavigator} 
+            options={{headerShown: false}} 
+          />
+          <Stack.Screen 
+            name="movieList" 
+            component={MovieScreenContainer} 
             options={{headerShown: false}} 
           />
         </Stack.Navigator>

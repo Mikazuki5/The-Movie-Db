@@ -21,7 +21,7 @@ const ListMovieComponent = (props:any) => {
   const handleSaveToWatchList = (values:any) => {
     let Watchlist = []
     const data = watchListData;
-    const find = data.filter((x: any) => x.title == values.title);
+   
 
     if (data != undefined) {
       if (typeof data == 'string') {
@@ -32,6 +32,7 @@ const ListMovieComponent = (props:any) => {
     }
 
     if (data != undefined) {
+      const find = data.filter((x: any) => x.title == values.title);
       if (find && find.length != 0) {
         Alert.alert('Maaf film untuk judul ini telah tersedia!')
       } else {

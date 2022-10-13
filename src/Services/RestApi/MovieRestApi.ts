@@ -6,20 +6,16 @@ export class MovieRestApiServices {
     String(EnvironmentService.API.API_MAIN + '3/')
   )
 
-  now_playing(params:any){
-    return this.httpRequest.get(`/movie/now_playing?${params}`)
+  trending(queryParams:any){
+    return this.httpRequest.get(`/trending/${queryParams.mediaType}/${queryParams.timeWindow}`)
   }
 
-  topRatedMovie(queryParams: any){
-    return this.httpRequest.get(`/movie/top_rated?${queryParams}`)
-  }
-  
   topRatedTv(queryParams: any){
     return this.httpRequest.get(`/tv/top_rated?${queryParams}`)
   }
-
-  trending(queryParams:any){
-    return this.httpRequest.get(`/trending/${queryParams.mediaType}/${queryParams.timeWindow}`)
+    
+  topRatedMovie(queryParams: any){
+    return this.httpRequest.get(`/movie/top_rated?${queryParams}`)
   }
 
   nowPlaying(queryParams:any){
@@ -28,5 +24,9 @@ export class MovieRestApiServices {
 
   upcomingMovie(queryParams:any){
     return this.httpRequest.get(`/movie/upcoming?${queryParams}`)
+  }
+
+  popularMovie(queryParams:any){
+    return this.httpRequest.get(`/movie/popular?${queryParams}`)
   }
 }

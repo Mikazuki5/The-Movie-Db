@@ -63,6 +63,17 @@ export default function <C>({ Colors, ...args }: CommonParams<C>) {
         shadowRadius: 3.84,
 
         elevation: 5,
+      },
+      cardShadows2: {
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 1,
+        },
+        shadowOpacity: 0.20,
+        shadowRadius: 1.41,
+
+        elevation: 2,
       }
     }),
   }

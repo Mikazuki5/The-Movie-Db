@@ -20,6 +20,25 @@ const Movies:any = [
   },
 ]
 
+const MoviesCategories:any = [
+  {
+    id:'popular',
+    name: 'Popular',
+  },
+  {
+    id:'nowPlaying',
+    name: 'Now Playing',
+  },
+  {
+    id:'upcoming',
+    name: 'Upcoming',
+  },
+  {
+    id:'topRated',
+    name: 'Top Rated',
+  },
+]
+
 const MediaType:any = [
   {
     id: 'all',
@@ -49,5 +68,6 @@ export {
   PopularCategories,
   MediaType,
   TimeWindow,
-  Movies
+  Movies,
+  MoviesCategories
 }

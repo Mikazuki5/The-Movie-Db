@@ -4,6 +4,7 @@ let movieRestServices = new MovieRestApiServices()
 
 const initialState = {
   isLoading: false,
+  watchListData: undefined
 }
 
 const MovieStore = createSlice({
@@ -13,6 +14,12 @@ const MovieStore = createSlice({
     setLoading(state: any, action: PayloadAction<any>) {
       state.isLoading = action.payload
     },
+    setWatchListData(state, action) {
+      return {
+        ...state,
+        watchListData: action.payload
+      }
+    }
   }
 })
 
@@ -121,5 +128,38 @@ export const fetchDataUpcomingMovie = createAsyncThunk(
   }
 )
 
-export const { setLoading } = MovieStore.actions
+export const fetchDataPopularMovie = createAsyncThunk(
+  'MovieStore/fetch-data-popular-movie',
+  async (params:{payload:any; callback: (action:any, status:any) => void}, {rejectWithValue, dispatch}) => {
+    try {
+      dispatch(setLoading(true));
+      const res = await movieRestServices.popularMovie(params.payload).toPromise();
+      if (res?.results) {
+        console.log('res: ', res.results)
+        dispatch(setLoading(false));
+        params?.callback(res, 200);
+      }
+      dispatch(setLoading(false));
+      return rejectWithValue(res)
+    } catch (error: any) {
+      dispatch(setLoading(false));
+      params?.callback(error, 400);
+      
+    }
+  }
+)
+
+export const watchListDatas = createAsyncThunk(
+  'MovieStore/setWatchlist',
+  async (params:{payload:any; callback: (status:any) => void}, {dispatch}) => {
+    try {
+      dispatch(setWatchListData(params.payload))
+      params.callback(200)
+    } catch {
+      params.callback(400)
+    }
+  }
+)
+
+export const { setLoading, setWatchListData } = MovieStore.actions
 export default MovieStore.reducer;

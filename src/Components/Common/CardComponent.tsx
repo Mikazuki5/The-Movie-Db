@@ -13,11 +13,7 @@ const CardComponent = (props:CardTypes) => {
       style={[
         props.CardStyle
           ? props.CardStyle
-          : Gutters.regularBRadius, Common.cardShadows, Gutters.tinyMargin, Gutters.tinyPadding, {
-            backgroundColor: props.color,
-            width: props?.width,
-            height: props?.height
-          }
+          : Gutters.regularBRadius, Common.cardShadows, Gutters.tinyMargin, Gutters.tinyPadding, {backgroundColor: props.color,}
       ]}
     >
       {props.children}
@@ -27,8 +23,6 @@ const CardComponent = (props:CardTypes) => {
 
 CardComponent.defaultProps = {
   color: 'white',
-  width: '40%',
-  height: 200,
   disable: true
 }
 
@@ -39,10 +33,10 @@ const CardImages = (props:CardTypes) => {
       key={props.key}
       disabled={props.disable}
       onPress={props.onSubmit}
-      style={[Layout?.fill, Gutters?.tinyRMargin]}
+      style={[Gutters?.tinyRMargin]}
     >
       <Image 
-        source={{uri: props?.dataImage}}
+        source={props?.dataImage ? {uri: props?.dataImage} : Images.background}
         resizeMode='cover'
         style={[
           props.CardStyle

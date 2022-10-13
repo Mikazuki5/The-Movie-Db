@@ -149,6 +149,27 @@ export const fetchDataPopularMovie = createAsyncThunk(
   }
 )
 
+export const MultiSearch = createAsyncThunk(
+  'MovieStore/fetch-search-movie',
+  async (params:{payload:any; callback: (action:any, status:any) => void}, {rejectWithValue, dispatch}) => {
+    try {
+      dispatch(setLoading(true));
+      const res = await movieRestServices.multiSearch(params.payload).toPromise();
+      if (res?.results) {
+        console.log('res: ', res.results)
+        dispatch(setLoading(false));
+        params?.callback(res, 200);
+      }
+      dispatch(setLoading(false));
+      return rejectWithValue(res)
+    } catch (error: any) {
+      dispatch(setLoading(false));
+      params?.callback(error, 400);
+      
+    }
+  }
+)
+
 export const watchListDatas = createAsyncThunk(
   'MovieStore/setWatchlist',
   async (params:{payload:any; callback: (status:any) => void}, {dispatch}) => {

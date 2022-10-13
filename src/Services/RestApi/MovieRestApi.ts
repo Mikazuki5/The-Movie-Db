@@ -29,4 +29,9 @@ export class MovieRestApiServices {
   popularMovie(queryParams:any){
     return this.httpRequest.get(`/movie/popular?${queryParams}`)
   }
+
+  multiSearch(queryParams:any){
+    console.log('queryParams: ', queryParams)
+    return this.httpRequest.get(`/search/multi?language=${queryParams.language}&page=${queryParams.page}&query=${queryParams.query}&include_adult=${queryParams.include_adult}`)
+  }
 }

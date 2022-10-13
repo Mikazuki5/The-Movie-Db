@@ -1,11 +1,44 @@
-import { View, SafeAreaView, ScrollView } from 'react-native'
+import { View, SafeAreaView, ScrollView, Alert } from 'react-native'
 import React from 'react'
 import { useTheme } from '@/Hooks'
-import { HeaderHome, NowPlayingComponent, SearchComponent, Text, TopRatedComponent, TrendingComponent } from '@/Components'
+import { HeaderHome, Loading, NowPlayingComponent, SearchComponent, Text, TopRatedComponent, TrendingComponent } from '@/Components'
 import { FontBase } from '@/Theme/Variables'
+import { useDispatch, useSelector } from 'react-redux'
+import { MultiSearch } from '@/Store/Movie'
 
-const HomeScreenContainer = () => {
-  const { Layout, Colors, Gutters, Fonts } = useTheme()
+const HomeScreenContainer = ({navigation}: any) => {
+  const { Layout, Colors, Gutters, Fonts } = useTheme();
+  const dispatch = useDispatch<any>();
+  const {loading} = useSelector((state: any) => ({
+    loading: state?.MovieStore?.isLoading,
+  }))
+  
+
+  const loadData = (values:any) => {
+    let payload:any = {
+      page: 1,
+      language: 'en-US',
+      include_adult: false,
+      query: values
+    }
+    console.log('Payload: ', payload);
+    dispatch(
+      MultiSearch({
+        payload,
+        callback(action, status) {
+          console.log('Action: ', action);
+          if (status == 200) {
+            navigation.navigate('resultSearch', {
+              data: action?.results
+            })
+          } else {
+            Alert.alert('error')
+          }
+        },
+      })
+    )
+  }
+
   return (
     <SafeAreaView style={[Layout.fill, {backgroundColor: Colors.white}]}>
       <HeaderHome />
@@ -34,11 +67,14 @@ const HomeScreenContainer = () => {
           ]}
           placeholderTextColor={Colors.mono7}
           styleContainerTextInput={Layout.fill}
-          onEndEditing={(values:any) => console.log('Values: ', values?.nativeEvent?.text)}
+          onEndEditing={(values:any) => {
+            loadData(values?.nativeEvent?.text)
+          }}
         />
         <NowPlayingComponent />
         <TopRatedComponent />
         <TrendingComponent />
+        <Loading isLoading={loading} />
       </ScrollView>
     </SafeAreaView>
   )

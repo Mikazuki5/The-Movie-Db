@@ -3,3 +3,4 @@ export { default as BootScreenContainer } from './BootScreen/BootScreenContainer
 export { default as MovieScreenContainer } from './Movie/MovieScreenContainer'
 export { default as TVScreenContainer } from './Tv/TVScreenContainer'
 export { default as WatchListScreenContainer } from './WatchList/WatchListScreenContainer'
+export { default as MultiSearchContainer } from './MultiSearch/MultiSearchContainer'

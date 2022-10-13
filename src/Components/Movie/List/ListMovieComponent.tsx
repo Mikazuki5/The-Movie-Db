@@ -79,13 +79,15 @@ const ListMovieComponent = (props:any) => {
             <StarIcon color={'#0d253f'} style={[Gutters.smallLMargin]} />
             <Text font={FontBase.semiBold} style={[Fonts.textExtraSmall, {color: Colors.mono9}]}>{String(item?.vote_average).substr(0, 3)}</Text>
           </View>
-          <TouchableOpacity
-            onPress={() => handleSaveToWatchList(item)}
-            style={[Layout.row, Layout.alignItemsCenter, Gutters.smallTMargin]}
-          >
-            <HeartIcon color={'#0d253f'} />
-            <Text font={FontBase.semiBold} style={[Fonts.textSmall]}> Add to Watchlist</Text>
-          </TouchableOpacity>
+          {!props.watchlist && (
+            <TouchableOpacity
+              onPress={() => handleSaveToWatchList(item)}
+              style={[Layout.row, Layout.alignItemsCenter, Gutters.smallTMargin]}
+            >
+              <HeartIcon color={'#0d253f'} />
+              <Text font={FontBase.semiBold} style={[Fonts.textSmall]}> Add to Watchlist</Text>
+            </TouchableOpacity>
+          )}
         </View>
       </View>
     )
@@ -97,6 +99,11 @@ const ListMovieComponent = (props:any) => {
         data={props?.data}
         renderItem={_renderItem}
         keyExtractor={(item, index) => index.toString()}
+        ListEmptyComponent={() => {
+          return(
+            <Text>List Kosong</Text>
+          )
+        }}
       />
     </>
   )

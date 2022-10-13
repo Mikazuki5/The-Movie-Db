@@ -1,11 +1,11 @@
-import { View, Text, TextInput } from 'react-native'
+import { View, TextInput } from 'react-native'
 import React from 'react'
 import { useTheme } from '@/Hooks';
 import { SearchTypesComponent } from '@/Services/Common/Types';
-import { Icon } from '../index';
+import { SearchIcon } from 'react-native-heroicons/outline'
 
 const SearchComponent = (props: SearchTypesComponent) => {
-  const { Layout, Gutters, Colors, Fonts, Common} = useTheme();
+  const { Colors } = useTheme();
   return (
     <View 
       style={props?.styleContainer}>
@@ -19,10 +19,7 @@ const SearchComponent = (props: SearchTypesComponent) => {
         value={props?.value}
         defaultValue={props?.defaultValue}
       />
-      <Icon
-        width={20}
-        name="search"
-      />
+      <SearchIcon color={Colors.mono8} />
     </View>
   )
 }

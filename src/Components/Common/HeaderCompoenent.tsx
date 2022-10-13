@@ -13,7 +13,7 @@ const HeaderCompoenent = (props:any) => {
         {props.leftComponent}
       </View>
       <View style={[Layout.fill, Layout.alignItemsCenter, {}]}>
-        <Text font={FontBase.extraBold} style={[Fonts.textRegular]}>Movie List</Text>
+        <Text font={FontBase.extraBold} style={[Fonts.textRegular]}>{props?.title || 'Movie List'}</Text>
       </View>
       <View style={[Layout.fill, Layout.alignItemsEnd, {}]}>
         {props.rightComponent}

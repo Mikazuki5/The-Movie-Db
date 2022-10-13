@@ -2,21 +2,20 @@ import { View, Text, SafeAreaView, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { HeaderCompoenent } from '@/Components/Common/HeaderCompoenent'
 import { ArrowSmLeftIcon } from 'react-native-heroicons/outline'
-import { useTheme } from '@/Hooks'
-import { useSelector } from 'react-redux'
-import { LoadingComponent } from '@/Components/Common/LoadingComponent'
 import { ListMovieComponent } from '@/Components/Movie'
+import { LoadingComponent } from '@/Components/Common/LoadingComponent'
+import { useSelector } from 'react-redux'
+import { useTheme } from '@/Hooks'
 
-const WatchListScreenContainer = (props:any) => {
-  const { Layout, Gutters, Fonts, Colors, Common } = useTheme();
-  const {loading, watchListData} = useSelector((state: any) => ({
+const MultiSearchContainer = (props:any) => {
+  const { Layout, Gutters, Colors, } = useTheme();
+  const {loading,} = useSelector((state: any) => ({
     loading: state?.MovieStore?.isLoading,
-    watchListData: state?.MovieStore?.watchListData,
   }))
   return (
     <SafeAreaView style={[ Layout.fill, {backgroundColor: Colors.white} ]}>
       <HeaderCompoenent
-        title={'Watchlist'}
+        title={'Pencarian'}
         leftComponent={
           <TouchableOpacity onPress={() => props?.navigation.replace('MainMenu')}>
             <ArrowSmLeftIcon color={'black'} />
@@ -24,11 +23,11 @@ const WatchListScreenContainer = (props:any) => {
         }
       />
       <View style={[Layout.fill, Gutters.smallTMargin, Gutters.smallHMargin]}>
-        <ListMovieComponent data={watchListData} watchlist />
+        <ListMovieComponent data={props?.route?.params?.data} />
       </View>
       <LoadingComponent isLoading={loading} />
     </SafeAreaView>
   )
 }
 
-export default WatchListScreenContainer
+export default MultiSearchContainer

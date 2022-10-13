@@ -65,7 +65,7 @@ const BottomNavigator = ({navigation}: any) => {
         options={{
           tabBarIcon: () => (
             <TouchableOpacity style={{alignItems: 'center'}}
-              onPress={() => {navigate('Home', null)}}
+              onPress={() => {navigation.navigate('watchList', null)}}
             >
               <ViewListIcon color={'#0d253f'} />
               <Text style={{color: '#0d253f'}}>{'Watch List'}</Text>

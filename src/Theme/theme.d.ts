@@ -7,7 +7,6 @@ export type ThemeVariables = {
   FontSize: typeof Variables.FontSize
   MetricsSizes: typeof Variables.MetricsSizes,
   PlatformConfig: typeof Variables.PlatformConfig
-  FontsType: typeof Variables.FontBase
 }
 
 export type Theme<F, G, I, L, C> = ThemeVariables & {

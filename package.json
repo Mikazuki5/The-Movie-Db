@@ -9,6 +9,7 @@
     "clean": "cd android/ && ./gradlew clean && cd ..",
     "adb:reverse": "adb reverse tcp:8081 tcp:8081",
     "android:dev": "cross-env ENVFILE=.env.development react-native run-android",
+    "android:dev:build": "cd android && cross-env ENVFILE=.env.development ./gradlew assembleRelease",
     "test": "jest",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },

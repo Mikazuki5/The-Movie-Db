@@ -21,12 +21,10 @@ const HomeScreenContainer = ({navigation}: any) => {
       include_adult: false,
       query: values
     }
-    console.log('Payload: ', payload);
     dispatch(
       MultiSearch({
         payload,
         callback(action, status) {
-          console.log('Action: ', action);
           if (status == 200) {
             navigation.navigate('resultSearch', {
               data: action?.results

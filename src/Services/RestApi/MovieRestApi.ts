@@ -31,7 +31,6 @@ export class MovieRestApiServices {
   }
 
   multiSearch(queryParams:any){
-    console.log('queryParams: ', queryParams)
     return this.httpRequest.get(`/search/multi?language=${queryParams.language}&page=${queryParams.page}&query=${queryParams.query}&include_adult=${queryParams.include_adult}`)
   }
 }

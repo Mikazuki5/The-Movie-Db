@@ -30,7 +30,6 @@ export const fetchTopRateMovie = createAsyncThunk(
       dispatch(setLoading(true));
       const res = await movieRestServices.topRatedMovie(params.payload).toPromise();
       if (res?.results) {
-        console.log('res: ', res.results)
         dispatch(setLoading(false));
         params?.callback(res, 200);
       }
@@ -51,7 +50,6 @@ export const fetchTopRateTv = createAsyncThunk(
       dispatch(setLoading(true));
       const res = await movieRestServices.topRatedTv(params.payload).toPromise();
       if (res?.results) {
-        console.log('res: ', res.results)
         dispatch(setLoading(false));
         params?.callback(res, 200);
       }
@@ -72,7 +70,6 @@ export const fetchDataTrending = createAsyncThunk(
       dispatch(setLoading(true));
       const res = await movieRestServices.trending(params.payload).toPromise();
       if (res?.results) {
-        console.log('res: ', res.results)
         dispatch(setLoading(false));
         params?.callback(res, 200);
       }
@@ -93,7 +90,6 @@ export const fetchDataNowPlaying = createAsyncThunk(
       dispatch(setLoading(true));
       const res = await movieRestServices.nowPlaying(params.payload).toPromise();
       if (res?.results) {
-        console.log('res: ', res.results)
         dispatch(setLoading(false));
         params?.callback(res, 200);
       }
@@ -114,7 +110,6 @@ export const fetchDataUpcomingMovie = createAsyncThunk(
       dispatch(setLoading(true));
       const res = await movieRestServices.upcomingMovie(params.payload).toPromise();
       if (res?.results) {
-        console.log('res: ', res.results)
         dispatch(setLoading(false));
         params?.callback(res, 200);
       }
@@ -135,7 +130,6 @@ export const fetchDataPopularMovie = createAsyncThunk(
       dispatch(setLoading(true));
       const res = await movieRestServices.popularMovie(params.payload).toPromise();
       if (res?.results) {
-        console.log('res: ', res.results)
         dispatch(setLoading(false));
         params?.callback(res, 200);
       }
@@ -156,7 +150,6 @@ export const MultiSearch = createAsyncThunk(
       dispatch(setLoading(true));
       const res = await movieRestServices.multiSearch(params.payload).toPromise();
       if (res?.results) {
-        console.log('res: ', res.results)
         dispatch(setLoading(false));
         params?.callback(res, 200);
       }

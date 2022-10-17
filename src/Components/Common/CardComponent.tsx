@@ -30,7 +30,7 @@ const CardImages = (props:CardTypes) => {
   const  { Gutters, Common, Images, Layout} = useTheme()
   return (
     <TouchableOpacity
-      key={props.key}
+      // key={props.key}
       disabled={props.disable}
       onPress={props.onSubmit}
       style={[Gutters?.tinyRMargin]}

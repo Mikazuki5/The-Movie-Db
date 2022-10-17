@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
-import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from 'redux-persist'
+import { persistReducer, persistStore } from 'redux-persist'
 import { reducers } from './rootReducer'
 
 const persistConfig = {
@@ -15,9 +15,8 @@ const store = configureStore({
   reducer: persistedReducer,
   middleware: getDefaultMiddleware => {
     const middlewares = getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
+      serializableCheck: false,
+      immutableCheck: false,
     })
 
     if (__DEV__ && !process.env.JEST_WORKER_ID) {
@@ -25,8 +24,8 @@ const store = configureStore({
       middlewares.push(createDebugger())
     }
 
-    return middlewares
-  },
+    return middlewares;
+  }
 })
 
 const persistor = persistStore(store)

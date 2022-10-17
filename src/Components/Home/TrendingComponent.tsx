@@ -51,8 +51,8 @@ const TrendingComponent = () => {
 
   const _renderListTopMovie = (item: any, index: any) => {
     return (
-      <View style={Gutters.tinyRMargin}>
-        <CardImages key={index} width={150} height={200} dataImage={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item?.poster_path}`}>
+      <View key={index} style={Gutters.tinyRMargin}>
+        <CardImages width={150} height={200} dataImage={`https://www.themoviedb.org/t/p/w300_and_h450_bestv2/${item?.poster_path}`}>
           <View style={[Layout?.row]}>
             <View style={[{width:120}]}>
               <Text font={FontBase.bold} style={[{fontSize: 14, color: Colors.richBlack1}]}>{item?.title || item?.name}</Text>
